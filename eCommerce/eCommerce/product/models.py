@@ -3,7 +3,7 @@ from mptt.models import MPTTModel,TreeForeignKey
 # Create your models here.
 class Category(MPTTModel):
     name=models.CharField(max_length=255)
-    parent=TreeForeignKey("self",on_delete=models.PROTECT)
+    parent=TreeForeignKey("self",on_delete=models.PROTECT,null=True,blank=True)
     
     class MPTTMetta:
         order_insertion_by=['name']
